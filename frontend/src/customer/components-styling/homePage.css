@@ -1,0 +1,13 @@
+.nav-link {
+  position: relative;
+}
+
+.nav-link:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 5px;
+  background-color: yellow; /* Yellow color for the underline */
+}

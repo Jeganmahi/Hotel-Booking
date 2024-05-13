@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model customer_login {
+  id       Int    @id @default(autoincrement())
+  username String @db.VarChar(255)
+  pass     String @db.VarChar(255)
+}
+
+model customer_details {
+  fname       String   @db.VarChar(255)
+  lname       String   @db.VarChar(255)
+  email       String   @id @db.VarChar(255)
+  phonenumber String   @db.VarChar(255)
+  nationality String   @db.VarChar(255)
+  dob         DateTime @db.Date
+}
+
+model hotel_list {
+  hotelid     Int    @id @default(autoincrement())
+  hotelname   String @db.VarChar(255)
+  location    String @db.VarChar(255)
+  address     String @db.VarChar(255)
+  status      String @db.VarChar(255)
+  roomCount   Int
+  phonenumber String @db.VarChar(255)
+  about       String @db.VarChar(255)
+  hotelImage  String @db.VarChar(255)
+  ratings     Int
+  email       String @db.VarChar(255)
+}
+
+model bookings {
+  bookingId        Int    @id @default(autoincrement())
+  hotelName        String @db.VarChar(255)
+  checkOut         String @db.VarChar(255)
+  checkIn          String @db.VarChar(255)
+  email            String @db.VarChar(255)
+  cardName         String @db.VarChar(255)
+  cardNumber       String @db.VarChar(255)
+  expiryDate       String @db.VarChar(255)
+  cvv              Int
+  customerAddress  String @db.VarChar(255)
+  customerCity     String @db.VarChar(255)
+  customerPincode  String @db.VarChar(255)
+  bookingStatus    String @db.VarChar(255)
+  feedBackStatus   String @db.VarChar(255)
+  booking_duration Int
+  room_id          Int
+  price            Int
+}
+
+model feedBack {
+  id               Int    @id @default(autoincrement())
+  hotelName        String @db.VarChar(255)
+  hotelRating      Int
+  PlatformRating   Int
+  hotelfeedback    String @db.VarChar(255)
+  platformfeedback String @db.VarChar(255)
+  bookingId        String @db.VarChar(255)
+  customerName     String @db.VarChar(255)
+}
+
+model room_list {
+  room_id          Int    @id @default(autoincrement())
+  hotel_name       String @db.VarChar(255)
+  room_size        String @db.VarChar(255)
+  bed_count        String @db.VarChar(255)
+  maximum_duration String @db.VarChar(255)
+  minimum_duration String @db.VarChar(255)
+  price_per_day    String @db.VarChar(255)
+  amentities       String @db.Text
+  room_images      String @db.VarChar(255)
+  room_type        String @db.VarChar(255)
+  status           String @db.VarChar(255)
+}
+
+model hotel_login {
+  id       Int    @default(autoincrement())
+  username String @db.VarChar(255)
+  pass     String @db.VarChar(255)
+
+  @@id([id, username])
+}
+
+model File {
+  id       Int    @id @default(autoincrement())
+  filename String
+  mimetype String
+  data     Bytes
+}
