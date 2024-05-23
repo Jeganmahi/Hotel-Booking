@@ -56,7 +56,7 @@ const handleAddSubmit = async () => {
 };
 
   const handleSubmit = async () => {
-    setAddModal(false);
+    setEditShow(false);
     try {
       const formData = new FormData();
       formData.append("room_id", roomId);
@@ -74,6 +74,7 @@ const handleAddSubmit = async () => {
         body: formData,
       });
       console.log(response);
+      roomFetch();
     } catch (error) {
       console.log(error);
     }

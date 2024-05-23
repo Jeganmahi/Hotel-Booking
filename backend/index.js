@@ -645,7 +645,8 @@ app.get('/fetchFamousHotels', async (req, res) => {
         ratings: {
           gte: 3
         }
-      }
+      },
+      take: 5
     })
     
     return res.json(data)
