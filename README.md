@@ -59,3 +59,28 @@ PORT="5001"
 
 ---
 
+5. you can sample login on regular user with
+  user name:
+```
+ 927621bcs046@mkce.ac.in
+```
+
+pass:
+```
+123
+```
+6. you can sample login on hotel user with
+ user name:
+```
+Jegan
+```
+
+pass:
+```
+123
+```
+7. you can see on the sql file for more details in that hotel login table for hotel owners login and customers login table for regular user login and it contains list of users login list
+   
+
+
+
